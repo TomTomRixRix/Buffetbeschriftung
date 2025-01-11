@@ -1,0 +1,85 @@
+\documentclass[a6paper, landscape]{scrartcl}
+\usepackage[margin={0cm,0cm}]{geometry}
+\usepackage{fontawesome5}
+\usepackage{tikz}
+\usepackage{libertine}
+\pagestyle{empty} % no page numbers
+\setlength{\parindent}{0cm}
+
+\begin{document}
+
+\def\width{14.8}
+\def\height{10.5}
+\def\margin{2}
+\def\radius{1}
+\def\r{.25}
+\def\y{1}
+
+% VEGAN
+\def\vegan{\node[] at (1.2*\margin,7.5+\radius) {\includegraphics*[width=1.5\radius cm]{icons/sprout.png}}; \node[text width=4cm, align=center] at (1.2*\margin,7.5) {\textbf{\LARGE VEGAN}};}
+
+% VEGETARISCH 
+\def\vegetarisch{\node[] at (1.2*\margin,7.5+\radius) {\includegraphics*[width=1.5\radius cm]{icons/egg-fried.png}}; \node[] at (1.2*\margin,7.5) {\textbf{\LARGE VEGETARISCH}};}
+
+% FISCH
+\def\fisch{\node[] at (1.2*\margin,7.5+\radius) {\includegraphics*[width=1.5\radius cm]{icons/fish.png}}; \node[text width=4cm, align=center] at (1.2*\margin,7.5) {\textbf{\LARGE FISCH}};}
+
+% FLEISCH 
+\def\fleisch{\node[] at (1.2*\margin,7.5+\radius) {\includegraphics*[width=1.5\radius cm]{icons/pig-variant.png}};
+    \node[text width=4cm, align=center] at (1.2*\margin,7.5) {\textbf{\LARGE FLEISCH}};}
+ 
+% ESSENSKARTENUMGEBUNG 
+%
+% Verwendung:
+%
+% \begin{essenskarte}
+%     \fisch
+% \end{essenskarte}
+%
+\newenvironment{essenskarte}{\begin{tikzpicture}[label/.style={right, xshift=5mm}]
+        \draw[dotted] (2.5*\margin,7.5) -- (\width-\margin,7.5);
+        }
+        {% 
+        \node[] at (1.35*\margin,6) {\textbf{Enthält:}};
+
+        \draw[] (\margin,5) circle (\r) node[label] {Gluten};
+        \draw[] (\margin,5-1*\y) circle (\r) node[label] {Laktose};
+        \draw[] (\margin,5-2*\y) circle (\r) node[label] {Milcheiweiß};
+
+
+        \draw[] (3*\margin,5) circle (\r) node[label] {Erdnüssen};
+        \draw[] (3*\margin,5-1*\y) circle (\r) node[label] {Nüssen};
+        \draw[] (3*\margin,5-2*\y) circle (\r) node[label] {Eiern};
+
+        \draw[] (5*\margin,5) circle (\r) node[label] {Soja};
+        \draw[] (5*\margin,5-1*\y) circle (\r) node[label] {Koffein};
+        \draw[] (5*\margin,5-2*\y) circle (\r) node[label] {Alkohol};
+
+        \node[] at (2.55*\margin,5-3*\y) {\faExclamationTriangle{} \hspace{1.5mm} Achtung enthält außerdem:};
+        \draw[dotted] (4.4*\margin,1.8) -- (\width-1*\margin,1.8);
+
+        \node[align=left] at (2.15*\margin,5-3.8*\y){\includegraphics[width=7mm, trim=3mm 14mm 0 0]{icons/chef-hat.png}\hspace{1.5mm} Rückfragen\,/\,Rezept:};
+        \draw[dotted] (\width - 3.8*\margin,.8) -- (\width-1*\margin,.8);
+
+    \end{tikzpicture}%
+}
+ 
+\Large
+\begin{essenskarte}
+    \vegan
+\end{essenskarte}
+
+\begin{essenskarte}
+    \vegetarisch
+\end{essenskarte}
+
+\begin{essenskarte}
+    \fisch
+\end{essenskarte}
+
+\begin{essenskarte}
+    \fleisch
+\end{essenskarte}
+
+
+\end{document}
