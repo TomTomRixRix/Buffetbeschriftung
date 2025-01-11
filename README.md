@@ -13,9 +13,19 @@ Aktuell gibt es die Schilder in 4 Varianten:
 
 :warning: Neben den angegebenen Allergenen gibt es noch weitere, die allerdings nicht so häufig vorkommen und deshalb unter "_Achtung enthält außerdem_" angegeben werden sollten: Sesam, Senf, Lupine, Sulfite, Sellerie, Steinobst. Eine [vollständige Liste aller Allergene, die in der EU kennzeichnungspflichtig sind](https://www.produktqualitaet.com/de/lebensmittel/allergene/kennzeichnungspflichtige-allergene.html), stellt das [Institut für Produktqualität](https://www.produktqualitaet.com/de/) zur Verfügung.
 
+## Schildergenerierung
+
+Zum Erzeugen der Schilder wurde LaTeX verwendet. Wenn dies installiert ist, reicht der einfache Befehl
+
+```console
+pdflatex essenskarten.tex
+```
+
+um eine PDF Datei mit den Karten zu erzeugen. Es muss allerdings sichergestellt sein, dass die Icons am richtigen Ort vorhanden sind.
+
 ## Lizenz
 
-Dieses Projekt ist unter der Unlicense lizenziert. Sie in `LICENSE.txt` für mehr Informationen.
+Dieses Projekt ist unter der Unlicense lizenziert. Sie in `LICENSE` für mehr Informationen.
 
 ## Verwendete Ressourcen
 
